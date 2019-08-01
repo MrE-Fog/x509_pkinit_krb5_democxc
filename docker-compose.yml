@@ -1,0 +1,18 @@
+version: '3'
+services:
+  krb5_kdc:
+    build: ./build_ca
+    container_name: kdc
+    domainname: example.com
+    ports:
+      - "88/tcp"
+      - "88/udp"
+      - "749/tcp"
+      - "754/tcp"
+      - "760/tcp"
+    networks:
+      - krb5_demo
+    
+networks:
+  krb5_demo:
+    
