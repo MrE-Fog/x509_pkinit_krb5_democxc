@@ -16,4 +16,4 @@ name_type=EXP:0,INTEGER:1
 name_string=EXP:1,SEQUENCE:principals
 
 [principals]
-princ1=GeneralString:user1@EXAMPLE.COM
+princ1=GeneralString:user1

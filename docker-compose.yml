@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   krb5_kdc:
     build: ./build_ca
@@ -11,7 +11,9 @@ services:
       - "754/tcp"
       - "760/tcp"
     networks:
-      - krb5_demo
+      krb5_demo:
+        aliases:
+          - kdc.example.com
     
 networks:
   krb5_demo:

@@ -14,7 +14,9 @@ COPY krb5.conf /var/kerberos/krb5kdc/kdc.conf
 RUN useradd -m user1
 RUN useradd -m user2
 RUN kdb5_util create -s -r EXAMPLE.COM -P abc123
-RUN kadmin.local -q "addprinc -pw xyz456 user1@EXAMPLE.COM"
+#RUN kadmin.local -q "addprinc -pw xyz456 user1@EXAMPLE.COM"
+RUN kadmin.local -q 'add_principal +requires_preauth -nokey user1'
+#RUN kadmin.local -q 'add_principal -nokey user1'
 
 
 
@@ -26,7 +28,7 @@ RUN mkdir -p /root/tiny_ca  && \
     openssl req -x509 -passin pass:abc123 -new -nodes \
                 -key /root/tiny_ca/myCA.key -sha256 -days 10000 \
                 -out /root/tiny_ca/myCA.pem \
-                -subj '/C=US/ST=California/L=Modesto/O=X509_TEST_ROOT_CERT/OU=DO NOT USE IN PRODUCTION/CN=kdc.example.com'
+                -subj '/C=US/ST=California/L=Modesto/O=X509_ROOT_TEST_CERT/OU=DO NOT USE IN PRODUCTION - DO NOT TRUST/CN=kdc.example.com'
 
 # copy root cert to location for clients to read 
 # TODO: make intermediate cert
@@ -62,4 +64,4 @@ RUN openssl genrsa -out /var/tmp/certs/user1_certs/user1_x509.key 2048 && \
                  -extensions client_cert
 
 # start container
-CMD ["/usr/sbin/krb5kdc", "-n"]
+CMD ["/usr/sbin/krb5kdc", "-n", "-w", "10"]
