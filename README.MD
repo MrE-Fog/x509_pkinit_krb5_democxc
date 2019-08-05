@@ -95,10 +95,16 @@ renew the TGT, the risks are similar to having a passwordless keytab.
 # References
 
 [Redhat documentation on configuration Kerberos](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system-level_authentication_guide/configuring_a_kerberos_5_server)
+
 [PKINIT walkthrough by MIT](https://web.mit.edu/kerberos/krb5-1.13/doc/admin/pkinit.html)
+
 [krb.conf settings](https://web.mit.edu/kerberos/krb5-1.17/doc/admin/conf_files/krb5_conf.html)
+
 [Kerberos Encryption Type Numbers](https://www.iana.org/assignments/kerberos-parameters/kerberos-parameters.xhtml)
+
 [OpenSSL manual](https://www.openssl.org/docs/man1.0.2/man1/)
+
 [OpenSSL cheat sheet](https://gist.github.com/davewongillies/7050080)
+
 [Facebook Tupperware](https://code.fb.com/data-center-engineering/tupperware/)
 
