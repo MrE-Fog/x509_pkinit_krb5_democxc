@@ -2,7 +2,7 @@ FROM centos:7
 RUN yum -y install deltarpm && \
     yum -y clean all && \
     yum -y install krb5-server krb5-libs krb5-workstation krb5-pkinit && \
-    yum -y install less which openssl bind-utils tree mlocate iproute tcpdump
+    yum -y install less which openssl bind-utils tree mlocate iproute tcpdump strace
 
 # configure KDC
 
