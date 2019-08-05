@@ -10,11 +10,6 @@ services:
       - "749/tcp"
       - "754/tcp"
       - "760/tcp"
-    networks:
-      krb5_demo:
-        aliases:
-          - kdc.example.com
-    
-networks:
-  krb5_demo:
+    environment:
+      - KRB5_TRACE=/dev/stdout
     
